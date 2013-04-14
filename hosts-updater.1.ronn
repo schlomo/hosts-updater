@@ -1,0 +1,33 @@
+hosts-updater(1) -- Update /etc/hosts entries from DNS
+=============================================
+
+## SYNOPSIS
+
+`hosts-updater`
+
+## DESCRIPTION
+
+Read `/etc/hosts.autoupdate` which contains DNS hostnames and put an IP NAME
+enty into `/etc/hosts`.
+
+The main purpose is to do name-based access control for hosts with a dynamic
+DNS entry. Such systems usually don't have a valid PTR record so that name-based
+access control with double lookups is not possible.
+
+`hosts-updater` solves this problem by keeping the IP NAME records in the local
+hosts(5) database so that also reverse lookups for the IP will yield the intended
+name and not the real PTR record (e.g. of a dialup system).
+
+`hosts-updater` is run every 5 minutes from `/etc/cron.d/hosts-updater`.
+
+## AUTHOR
+
+hosts-updater is written by Schlomo Schapiro <schlomo+packaging@schapiro.org>
+
+## COPYRIGHT
+
+Copyright 2013 Schlomo Schapiro
+
+## SEE ALSO
+
+hosts(5), dig(1)

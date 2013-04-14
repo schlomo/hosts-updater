@@ -1,0 +1,11 @@
+Package: hosts-updater
+Version: 3
+Priority: optional
+Section: misc
+Architecture: all
+Maintainer: Schlomo Schapiro <schlomo+packaging@schapiro.org>
+Depends: dnsutils
+Description: Update /etc/hosts from DNS
+ To "properly" resolve systems that use dyndns, add them
+ to /etc/hosts.autoupdate and hosts-updater will write them
+ into /etc/hosts. Runs as a cron job every 5 minutes.

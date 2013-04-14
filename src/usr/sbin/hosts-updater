@@ -1,0 +1,20 @@
+#!/bin/bash
+#
+# update/add the following hosts to /etc/hosts
+
+[[ -r /etc/hosts.autoupdate ]] || exit 0
+
+for h in $(
+    sed -ne 's/#.*//;s/^\([^ \t]\+\).*$/\1/p' \
+    pohl.schapiro.org monatobi.no-ip.org
+    ) ; do
+        sed "
+1i $(dig +short $h)     $h
+1,\$ {
+        /$h$/d
+}
+" -i /etc/hosts
+    done
+
+# vim:autoindent:tabstop=4:shiftwidth=4:expandtab:softtabstop=4:
+
