@@ -5,8 +5,7 @@
 [[ -r /etc/hosts.autoupdate ]] || exit 0
 
 for h in $(
-    sed -ne 's/#.*//;s/^\([^ \t]\+\).*$/\1/p' \
-    pohl.schapiro.org monatobi.no-ip.org
+    sed -ne 's/#.*//;s/^\([^ \t]\+\).*$/\1/p' /etc/hosts.autoupdate \
     ) ; do
         sed "
 1i $(dig +short $h)     $h
