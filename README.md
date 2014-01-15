@@ -8,4 +8,4 @@ Full documentation and usage can be found in the included [man page](hosts-updat
 ## Building a DEB
 
 
-Run `make deb` to build the DEB package in out
+Run `make deb` to build the DEB package in out. You'll need to install [ronn](https://github.com/rtomayko/ronn) to build the package, it is used to create the man page.
