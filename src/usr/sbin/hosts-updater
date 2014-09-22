@@ -8,7 +8,7 @@ for h in $(
     sed -ne 's/#.*//;s/^\([^ \t]\+\).*$/\1/p' /etc/hosts.autoupdate \
     ) ; do
         sed "
-1i $(dig +short $h)     $h
+1i $(dig +short $h | tail -n 1)     $h
 1,\$ {
         /$h$/d
 }
